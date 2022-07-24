@@ -2,6 +2,11 @@
 # Cargo Build Stage
 # ------------------------------------------------------------------------------
 
+LABEL org.opencontainers.image.source="https://github.com/simeononsecurity/virtual-lorawan-device"
+LABEL org.opencontainers.image.description="A utility that attaches to a Semtech UDP Host and pretends to be a LoRaWAN Device"
+LABEL org.opencontainers.image.authors="simeononsecurity"
+
+
 FROM rust:latest as cargo-build
 
 RUN apt-get update && \
