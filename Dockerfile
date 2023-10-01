@@ -5,8 +5,9 @@
 FROM rust:latest as cargo-build
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y musl-tools
+    apt-get full-upgrade -y --no-install-recommends && \
+    apt-get install -y --no-install-recommends musl-tools && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN rustup target add x86_64-unknown-linux-musl
 
 WORKDIR /tmp/virtual-lorawan-device
